@@ -61,6 +61,12 @@ header {
     height: auto;
 }
 
+h2 {
+    font-family: var(--header-font);
+    font-size: 35px;
+    padding: 5px;
+}
+
 .text-box {
     background-color: white;
     background: rgba(255, 255, 255, 0.6);
@@ -103,4 +109,26 @@ footer {
 
 #footer-link:hover {
     color: green;
+}
+
+@media (max-width: 750px) {
+    .content-container {
+        height: 994px;
+    }
+
+    #intro-container {
+        background: url('../images/backgrounds/intronarrow.png') center;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    #intro-box {
+        width: 75%;
+    }
+
+    .green-btn {
+        font-size: 25px;
+    }
 }
