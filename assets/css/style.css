@@ -33,15 +33,6 @@ header {
     padding-right: 15px;
 }
 
-#music-btn {
-    background-color: goldenrod;
-    border: none;
-}
-
-#music-btn:hover {
-    color: white;
-}
-
 #main-container {
     width: 85%;
     margin: auto;
@@ -65,10 +56,21 @@ header {
     background: url('../images/backgrounds/introwide.png') center;
 }
 
-.intro-container img {
+#intro-container img {
     width: 100%;
     height: auto;
 }
+
+#menu-container {
+    background: url('../images/backgrounds/townwide.png') center;
+}
+
+#menu-container img {
+    width: 100%;
+    height: auto;
+}
+
+
 
 h2 {
     font-family: var(--header-font);
@@ -105,6 +107,38 @@ h2 {
 
 #start-btn {
     margin-top: 20px;
+}
+
+.stats-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: 2px solid goldenrod;
+}
+
+.stats-element {
+    display: flex;
+    padding: 5px;
+}
+
+.town-btn {
+    background-color: goldenrod;
+    padding: 10px;
+    box-shadow: 7px 7px darkgoldenrod;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-family: var(--header-font);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.town-btn:active {
+    background-color: darkgoldenrod;
 }
 
 footer {
