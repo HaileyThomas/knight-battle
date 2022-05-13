@@ -33,6 +33,15 @@ header {
     padding-right: 15px;
 }
 
+#music-btn {
+    background-color: goldenrod;
+    border: none;
+}
+
+#music-btn:hover {
+    color: white;
+}
+
 #main-container {
     width: 85%;
     margin: auto;

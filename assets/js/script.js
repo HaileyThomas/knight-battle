@@ -1,20 +1,22 @@
 // VARIABLES
 // ELEMENTS
-const musicBtn = document.getElementById("music-btn");
-const startBtn = document.getElementById("start-btn");
+var introContainer = document.getElementById("intro-container");
+var startBtn = document.getElementById("start-btn");
 // SOUNDS
-var introMusic = document.getElementById("intro-audio");
+var menuMusic = document.getElementById("menu-audio");
 var startSound = document.getElementById("start-sound");
 
 // GAME
 
-// EVENT LISTENERS
-musicBtn.addEventListener("click", function () {
-  introMusic.volume = 0.2;
-  introMusic.play();
-});
+function loadMenu() {
+  console.log("loadMenu function working!");
+}
 
+// EVENT LISTENERS
 startBtn.addEventListener("click", function () {
-  introMusic.pause();
   startSound.play();
+  introContainer.remove();
+  loadMenu();
+  menuMusic.volume = 0.2;
+  menuMusic.play();
 });
