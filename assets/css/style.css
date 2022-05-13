@@ -90,6 +90,10 @@ h2 {
     font-size: 34px;
 }
 
+.green-btn:active {
+    background-color: darkgreen;
+}
+
 #start-btn {
     margin-top: 20px;
 }
