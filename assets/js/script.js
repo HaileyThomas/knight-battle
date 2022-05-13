@@ -120,6 +120,13 @@ function loadMenu() {
   // append town button container to menu container
   menuContainerEl.appendChild(townBtnDivEl);
 
+  // FIGHT BUTTON
+  var fightBtn = document.createElement("button");
+  fightBtn.className = "fight-btn";
+  fightBtn.setAttribute("id", "menu-fight-btn");
+  fightBtn.textContent = "Fight!";
+  menuContainerEl.appendChild(fightBtn);
+
   // append ALL to main container
   mainContainer.appendChild(menuContainerEl);
 }

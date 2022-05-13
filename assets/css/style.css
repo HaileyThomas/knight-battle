@@ -125,6 +125,22 @@ h2 {
     padding: 5px;
 }
 
+.health-icon {
+    color: red;
+}
+
+.attack-icon {
+    color: darkorange;
+}
+
+.defense-icon {
+    color: blue;
+}
+
+.money-icon {
+    color: darkgoldenrod;
+}
+
 .town-btn {
     background-color: goldenrod;
     padding: 10px;
@@ -139,6 +155,24 @@ h2 {
 
 .town-btn:active {
     background-color: darkgoldenrod;
+}
+
+.fight-btn {
+    background-color: red;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-shadow: 7px 7px darkred;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-family: var(--header-font);
+    font-size: 34px;
+    margin: 10px;
+}
+
+.fight-btn:active {
+    background-color: darkred;
 }
 
 footer {
