@@ -49,6 +49,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 7px groove goldenrod;
 }
 
 #intro-container {
@@ -60,9 +61,46 @@ header {
     height: auto;
 }
 
+.text-box {
+    background-color: white;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+#intro-box {
+    width: 55%;
+}
+
+.green-btn {
+    background-color: green;
+    padding: 10px;
+    box-shadow: 7px 7px darkgreen;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-family: var(--header-font);
+    font-size: 34px;
+}
+
+#start-btn {
+    margin-top: 20px;
+}
+
 footer {
     width: 70%;
     margin: auto;
     padding: 10px;
     text-align: center;
+}
+
+#footer-link {
+    color: goldenrod;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#footer-link:hover {
+    color: green;
 }
