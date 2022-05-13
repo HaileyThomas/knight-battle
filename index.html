@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pompiere&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Knight Battle</title>
 </head>
@@ -11,16 +14,25 @@
 <body>
     <header>
         <div id="header-title">
-            <h1>Knight Battle</h1>
-            <ion-icon name="shield-half-outline"></ion-icon>
+            <h1 id="header-text">Knight Battle</h1>
+            <ion-icon size="large" name="shield-half-outline"></ion-icon>
         </div>
         <div id="header-nav">
-            <ion-icon name="information-circle-outline"></ion-icon>
+            <ion-icon size="large" name="information-circle-outline"></ion-icon>
         </div>
     </header>
     <main>
         <section id="main-container">
-
+            <div id="intro-container" class="content-container">
+                <div id="intro-box" class="text-box">
+                    <p id="intro-text" class="main-text">
+                        intro text will go here.
+                    </p>
+                </div>
+                <div id="start-btn-box">
+                    <button id="start-btn" class="btn">Start Game</button>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

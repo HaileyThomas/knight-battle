@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --header-font: 'Rye', cursive;
+    --secondary-font: 'Pompiere', cursive;
+    --main-font: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: lightgrey;
+    font-family: var(--main-font);
+}
+
+header {
+    background-color: goldenrod;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#header-title {
+    display: flex;
+    align-items: center;
+}
+
+#header-text {
+    font-family: var(--header-font);
+    font-size: 40px;
+    padding-right: 15px;
+}
