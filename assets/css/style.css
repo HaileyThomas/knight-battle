@@ -12,6 +12,7 @@
 body {
     background-color: lightgrey;
     font-family: var(--main-font);
+    font-weight: bold;
 }
 
 header {
@@ -70,7 +71,14 @@ header {
     height: auto;
 }
 
+#inn-container {
+    background: url('../images/backgrounds/innwide.png') center;
+}
 
+#inn-container img {
+    width: 100%;
+    height: auto;
+}
 
 h2 {
     font-family: var(--header-font);
@@ -173,6 +181,38 @@ h2 {
 }
 
 .fight-btn:active {
+    background-color: darkred;
+}
+
+.option-btn-yes {
+    background-color: green;
+    padding: 10px;
+    box-shadow: 7px 7px darkgreen;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-family: var(--header-font);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.option-btn-yes:active {
+    background-color: darkgreen;
+}
+
+.option-btn-no {
+    background-color: red;
+    padding: 10px;
+    box-shadow: 7px 7px darkred;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-family: var(--header-font);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.option-btn-no:active {
     background-color: darkred;
 }
 
