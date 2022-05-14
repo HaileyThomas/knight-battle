@@ -313,7 +313,8 @@ function loadInn() {
 
   // EVENT LISTENERS
   innBtnYes.addEventListener("click", function () {
-    console.log("inn yes button working!");
+    playerInfo.fillHealth();
+    healthStatsDivEl.textContent = playerInfo.health;
   });
 
   innBtnNo.addEventListener("click", function () {
