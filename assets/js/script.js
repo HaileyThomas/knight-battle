@@ -11,6 +11,44 @@ var startSound = document.getElementById("start-sound");
 
 // GAME
 
+// PLAYER INFO
+var playerInfo = {
+  health: 100,
+  attack: 10,
+  defense: 0,
+  money: 10,
+  reset: function () {
+    this.health = 100;
+    this.attack = 10;
+    this.defense = 0;
+    this.money = 10;
+  },
+  fillHealth: function () {
+    if (this.money >= 10) {
+      this.health += 20;
+      this.money -= 10;
+    } else {
+      window.alert("You don't have enough money!");
+    }
+  },
+  upgradeAttack: function () {
+    if (this.money >= 10) {
+      this.attack += 5;
+      this.money -= 10;
+    } else {
+      window.alert("You don't have enough money!");
+    }
+  },
+  upgradeDefense: function () {
+    if (this.money >= 10) {
+      this.defense += 10;
+      this.money -= 10;
+    } else {
+      window.alert("You don't have enough money!");
+    }
+  },
+};
+
 // LOAD MENU FUNCTION
 function loadMenu() {
   // create div for menu container
@@ -34,7 +72,7 @@ function loadMenu() {
   // create div for health stats
   var healthStatsDivEl = document.createElement("div");
   healthStatsDivEl.className = "stats-text";
-  healthStatsDivEl.textContent = "100";
+  healthStatsDivEl.textContent = playerInfo.health;
   healthDivEl.appendChild(healthStatsDivEl);
   // append health div to stats container
   statsDivEl.appendChild(healthDivEl);
@@ -49,7 +87,7 @@ function loadMenu() {
   // create div for attack stats
   var attackStatsDivEl = document.createElement("div");
   attackStatsDivEl.className = "stats-text";
-  attackStatsDivEl.textContent = "100";
+  attackStatsDivEl.textContent = playerInfo.attack;
   attackDivEl.appendChild(attackStatsDivEl);
   // append attack div to stats container
   statsDivEl.appendChild(attackDivEl);
@@ -64,7 +102,7 @@ function loadMenu() {
   // create div for defense stats
   var defenseStatsDivEl = document.createElement("div");
   defenseStatsDivEl.className = "stats-text";
-  defenseStatsDivEl.textContent = "100";
+  defenseStatsDivEl.textContent = playerInfo.defense;
   defenseDivEl.appendChild(defenseStatsDivEl);
   // append defense div to stats container
   statsDivEl.appendChild(defenseDivEl);
@@ -79,7 +117,7 @@ function loadMenu() {
   // create div for money stats
   var moneyStatsDivEl = document.createElement("div");
   moneyStatsDivEl.className = "stats-text";
-  moneyStatsDivEl.textContent = "10";
+  moneyStatsDivEl.textContent = playerInfo.money;
   moneyDivEl.appendChild(moneyStatsDivEl);
   // append money div to stats container
   statsDivEl.appendChild(moneyDivEl);
