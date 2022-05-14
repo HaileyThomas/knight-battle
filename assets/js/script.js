@@ -8,6 +8,10 @@ var menuContainerEl;
 // SOUNDS
 var menuMusic = document.getElementById("menu-audio");
 var startSound = document.getElementById("start-sound");
+var innMusic = document.getElementById("inn-audio");
+var marketMusic = document.getElementById("market-audio");
+var trainingMusic = document.getElementById("training-audio");
+var battleMusic = document.getElementById("battle-audio");
 
 // GAME
 
@@ -157,7 +161,6 @@ function loadMenu() {
   townBtnDivEl.appendChild(marketBtn);
   // append town button container to menu container
   menuContainerEl.appendChild(townBtnDivEl);
-
   // FIGHT BUTTON
   var fightBtn = document.createElement("button");
   fightBtn.className = "fight-btn";
@@ -167,6 +170,60 @@ function loadMenu() {
 
   // append ALL to main container
   mainContainer.appendChild(menuContainerEl);
+
+  // event listeners
+  innBtn.addEventListener("click", function () {
+    menuContainerEl.remove();
+    loadInn();
+    menuMusic.pause();
+    innMusic.volume = 0.2;
+    innMusic.play();
+  });
+
+  trainingBtn.addEventListener("click", function () {
+    menuContainerEl.remove();
+    loadTraining();
+    menuMusic.pause();
+    trainingMusic.volume = 0.2;
+    trainingMusic.play();
+  });
+
+  marketBtn.addEventListener("click", function () {
+    menuContainerEl.remove();
+    loadMarket();
+    menuMusic.pause();
+    marketMusic.volume = 0.2;
+    marketMusic.play();
+  });
+
+  fightBtn.addEventListener("click", function () {
+    menuContainerEl.remove();
+    loadBattle();
+    menuMusic.pause();
+    battleMusic.volume = 0.6;
+    battleMusic.play();
+  });
+}
+
+// LOAD INN FUNCTION
+function loadInn() {
+  console.log("Inn function is working!");
+}
+
+// LOAD MARKET FUNCTION
+function loadMarket() {
+  console.log("Market function is working!");
+}
+
+// LOAD TRAINING FUNCTION
+function loadTraining() {
+  console.log("Training function is working!");
+}
+
+// LOAD BATTLE ONE FUNCTION
+function loadBattle() {
+  console.log("Battle function is working!");
+  // if enemy.health < 0 battle them etc
 }
 
 // EVENT LISTENERS
