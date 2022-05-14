@@ -286,7 +286,7 @@ function loadInn() {
   var innTextDivEl = document.createElement("div");
   innTextDivEl.className = "text-box";
   innTextDivEl.textContent =
-    "Welcome to the Inn! Would you like to spend 10 coins to gain 25 health?";
+    "Welcome to the Inn! Would you like to spend 10 coins to gain 20 health?";
   innContainerEl.appendChild(innTextDivEl);
 
   // BUTTONS
@@ -310,6 +310,20 @@ function loadInn() {
 
   // append ALL to main container
   mainContainer.appendChild(innContainerEl);
+
+  // EVENT LISTENERS
+  innBtnYes.addEventListener("click", function () {
+    console.log("inn yes button working!");
+  });
+
+  innBtnNo.addEventListener("click", function () {
+    innContainerEl.remove();
+    innMusic.pause();
+    loadMenu();
+    menuMusic.currentTime = 0;
+    menuMusic.volume = 0.2;
+    menuMusic.play();
+  });
 }
 
 // LOAD MARKET FUNCTION
