@@ -84,6 +84,7 @@ h2 {
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
+    width: 55%;
 }
 
 #intro-box {
@@ -201,6 +202,10 @@ footer {
         background: url('../images/backgrounds/intronarrow.png') center;
     }
 
+    #menu-container {
+        background: url('../images/backgrounds/townnarrow.png') center;
+    }
+
     h2 {
         font-size: 25px;
     }
@@ -209,7 +214,21 @@ footer {
         width: 75%;
     }
 
+    .text-box {
+        width: 75%;
+    }
+
     .green-btn {
         font-size: 25px;
+    }
+
+    .fight-btn {
+        font-size: 25px;
+    }
+
+    .town-btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }

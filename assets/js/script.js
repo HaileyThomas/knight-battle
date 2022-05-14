@@ -105,18 +105,18 @@ function loadMenu() {
   innBtn.setAttribute("id", "inn-btn");
   innBtn.textContent = "Inn (Health)";
   townBtnDivEl.appendChild(innBtn);
-  // create button for market
-  var marketBtn = document.createElement("button");
-  marketBtn.className = "town-btn";
-  marketBtn.setAttribute("id", "market-btn");
-  marketBtn.textContent = "Market (Defense)";
-  townBtnDivEl.appendChild(marketBtn);
   // create button for training
   var trainingBtn = document.createElement("button");
   trainingBtn.className = "town-btn";
   trainingBtn.setAttribute("id", "trainingBtn");
   trainingBtn.textContent = "Training (Attack)";
   townBtnDivEl.appendChild(trainingBtn);
+  // create button for market
+  var marketBtn = document.createElement("button");
+  marketBtn.className = "town-btn";
+  marketBtn.setAttribute("id", "market-btn");
+  marketBtn.textContent = "Market (Defense)";
+  townBtnDivEl.appendChild(marketBtn);
   // append town button container to menu container
   menuContainerEl.appendChild(townBtnDivEl);
 
