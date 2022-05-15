@@ -315,6 +315,7 @@ function loadInn() {
   innBtnYes.addEventListener("click", function () {
     playerInfo.fillHealth();
     healthStatsDivEl.textContent = playerInfo.health;
+    moneyStatsDivEl.textContent = playerInfo.money;
   });
 
   innBtnNo.addEventListener("click", function () {
@@ -327,14 +328,14 @@ function loadInn() {
   });
 }
 
-// LOAD MARKET FUNCTION
-function loadMarket() {
-  console.log("Market function is working!");
-}
-
 // LOAD TRAINING FUNCTION
 function loadTraining() {
   console.log("Training function is working!");
+}
+
+// LOAD MARKET FUNCTION
+function loadMarket() {
+  console.log("Market function is working!");
 }
 
 // LOAD BATTLE ONE FUNCTION

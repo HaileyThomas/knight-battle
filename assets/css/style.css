@@ -246,6 +246,10 @@ footer {
         background: url('../images/backgrounds/townnarrow.png') center;
     }
 
+    #inn-container {
+        background: url('../images/backgrounds/innnarrow.png') center;
+    }
+
     h2 {
         font-size: 25px;
     }
@@ -267,6 +271,12 @@ footer {
     }
 
     .town-btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .option-btn-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
