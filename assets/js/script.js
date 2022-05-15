@@ -453,7 +453,124 @@ function loadTraining() {
 
 // LOAD MARKET FUNCTION
 function loadMarket() {
-  console.log("Market function is working!");
+  // create div for inn container
+  marketContainerEl = document.createElement("div");
+  marketContainerEl.className = "content-container";
+  marketContainerEl.setAttribute("id", "market-container");
+  marketContainerEl.setAttribute("data-state", "visible");
+
+  // STATS INFO
+  // create div for stats info
+  var statsDivEl = document.createElement("div");
+  statsDivEl.className = "stats-box";
+  // create div for health
+  var healthDivEl = document.createElement("div");
+  healthDivEl.className = "stats-element";
+  // create div for health icon
+  var healthIconDivEl = document.createElement("div");
+  healthIconDivEl.className = "health-icon";
+  healthIconDivEl.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+  healthDivEl.appendChild(healthIconDivEl);
+  // create div for health stats
+  var healthStatsDivEl = document.createElement("div");
+  healthStatsDivEl.className = "stats-text";
+  healthStatsDivEl.textContent = playerInfo.health;
+  healthDivEl.appendChild(healthStatsDivEl);
+  // append health div to stats container
+  statsDivEl.appendChild(healthDivEl);
+  // create div for attack
+  var attackDivEl = document.createElement("div");
+  attackDivEl.className = "stats-element";
+  // create div for attack icon
+  var attackIconDivEl = document.createElement("div");
+  attackIconDivEl.className = "attack-icon";
+  attackIconDivEl.innerHTML = '<ion-icon name="flame-outline"></ion-icon>';
+  attackDivEl.appendChild(attackIconDivEl);
+  // create div for attack stats
+  var attackStatsDivEl = document.createElement("div");
+  attackStatsDivEl.className = "stats-text";
+  attackStatsDivEl.textContent = playerInfo.attack;
+  attackDivEl.appendChild(attackStatsDivEl);
+  // append attack div to stats container
+  statsDivEl.appendChild(attackDivEl);
+  // create div for defense
+  var defenseDivEl = document.createElement("div");
+  defenseDivEl.className = "stats-element";
+  // create div for defense icon
+  var defenseIconDivEl = document.createElement("div");
+  defenseIconDivEl.className = "defense-icon";
+  defenseIconDivEl.innerHTML = '<ion-icon name="shield-outline"></ion-icon>';
+  defenseDivEl.appendChild(defenseIconDivEl);
+  // create div for defense stats
+  var defenseStatsDivEl = document.createElement("div");
+  defenseStatsDivEl.className = "stats-text";
+  defenseStatsDivEl.textContent = playerInfo.defense;
+  defenseDivEl.appendChild(defenseStatsDivEl);
+  // append defense div to stats container
+  statsDivEl.appendChild(defenseDivEl);
+  // create div for money
+  var moneyDivEl = document.createElement("div");
+  moneyDivEl.className = "stats-element";
+  // create div for money icon
+  var moneyIconDivEl = document.createElement("div");
+  moneyIconDivEl.className = "money-icon";
+  moneyIconDivEl.innerHTML = '<ion-icon name="server-outline"></ion-icon>';
+  moneyDivEl.appendChild(moneyIconDivEl);
+  // create div for money stats
+  var moneyStatsDivEl = document.createElement("div");
+  moneyStatsDivEl.className = "stats-text";
+  moneyStatsDivEl.textContent = playerInfo.money;
+  moneyDivEl.appendChild(moneyStatsDivEl);
+  // append money div to stats container
+  statsDivEl.appendChild(moneyDivEl);
+  // append stats div to market container
+  marketContainerEl.appendChild(statsDivEl);
+
+  // CENTER TEXT
+  // create div for market text
+  var marketTextDivEl = document.createElement("div");
+  marketTextDivEl.className = "text-box";
+  marketTextDivEl.textContent =
+    "Welcome to the Market! Would you like to spend 10 coins to gain 10 defense?";
+  marketContainerEl.appendChild(marketTextDivEl);
+
+  // BUTTONS
+  // create div for market buttons
+  var marketBtnDivEl = document.createElement("div");
+  marketBtnDivEl.className = "option-btn-container";
+  // create button for buying defense
+  var marketBtnYes = document.createElement("button");
+  marketBtnYes.className = "option-btn-yes";
+  marketBtnYes.setAttribute = ("id", "market-btn-yes");
+  marketBtnYes.textContent = "Buy Defense";
+  marketBtnDivEl.appendChild(marketBtnYes);
+  // create button to go back to town
+  var marketBtnNo = document.createElement("button");
+  marketBtnNo.className = "option-btn-no";
+  marketBtnNo.setAttribute = ("id", "market-btn-no");
+  marketBtnNo.textContent = "Go Back To Town";
+  marketBtnDivEl.appendChild(marketBtnNo);
+  // append button container to market container
+  marketContainerEl.appendChild(marketBtnDivEl);
+
+  // append ALL to main container
+  mainContainer.appendChild(marketContainerEl);
+
+  // EVENT LISTENERS
+  marketBtnYes.addEventListener("click", function () {
+    playerInfo.upgradeDefense();
+    defenseStatsDivEl.textContent = playerInfo.defense;
+    moneyStatsDivEl.textContent = playerInfo.money;
+  });
+
+  marketBtnNo.addEventListener("click", function () {
+    marketContainerEl.remove();
+    marketMusic.pause();
+    loadMenu();
+    menuMusic.currentTime = 0;
+    menuMusic.volume = 0.2;
+    menuMusic.play();
+  });
 }
 
 // LOAD BATTLE ONE FUNCTION

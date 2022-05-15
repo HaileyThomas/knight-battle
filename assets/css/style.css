@@ -89,6 +89,15 @@ header {
     height: auto;
 }
 
+#market-container {
+    background: url('../images/backgrounds/marketwide.png') center;
+}
+
+#market-container img {
+    width: 100%;
+    height: auto;
+}
+
 h2 {
     font-family: var(--header-font);
     font-size: 35px;
@@ -261,6 +270,10 @@ footer {
 
     #training-container {
         background: url('../images/backgrounds/trainingnarrow.png') center;
+    }
+
+    #market-container {
+        background: url('../images/backgrounds/marketnarrow.png') center;
     }
 
     h2 {
