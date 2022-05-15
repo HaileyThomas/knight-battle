@@ -80,6 +80,15 @@ header {
     height: auto;
 }
 
+#training-container {
+    background: url('../images/backgrounds/trainingwide.png') center;
+}
+
+#training-container img {
+    width: 100%;
+    height: auto;
+}
+
 h2 {
     font-family: var(--header-font);
     font-size: 35px;
@@ -248,6 +257,10 @@ footer {
 
     #inn-container {
         background: url('../images/backgrounds/innnarrow.png') center;
+    }
+
+    #training-container {
+        background: url('../images/backgrounds/trainingnarrow.png') center;
     }
 
     h2 {
