@@ -5,6 +5,7 @@ var startBtn = document.getElementById("start-btn");
 var mainContainer = document.querySelector("#main-container");
 var menuContainerEl;
 var innContainerEl;
+var trainingContainerEl;
 
 // SOUNDS
 var menuMusic = document.getElementById("menu-audio");
@@ -330,7 +331,108 @@ function loadInn() {
 
 // LOAD TRAINING FUNCTION
 function loadTraining() {
-  console.log("Training function is working!");
+  // create div for inn container
+  trainingContainerEl = document.createElement("div");
+  trainingContainerEl.className = "content-container";
+  trainingContainerEl.setAttribute("id", "training-container");
+  trainingContainerEl.setAttribute("data-state", "visible");
+
+  // STATS INFO
+  // create div for stats info
+  var statsDivEl = document.createElement("div");
+  statsDivEl.className = "stats-box";
+  // create div for health
+  var healthDivEl = document.createElement("div");
+  healthDivEl.className = "stats-element";
+  // create div for health icon
+  var healthIconDivEl = document.createElement("div");
+  healthIconDivEl.className = "health-icon";
+  healthIconDivEl.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+  healthDivEl.appendChild(healthIconDivEl);
+  // create div for health stats
+  var healthStatsDivEl = document.createElement("div");
+  healthStatsDivEl.className = "stats-text";
+  healthStatsDivEl.textContent = playerInfo.health;
+  healthDivEl.appendChild(healthStatsDivEl);
+  // append health div to stats container
+  statsDivEl.appendChild(healthDivEl);
+  // create div for attack
+  var attackDivEl = document.createElement("div");
+  attackDivEl.className = "stats-element";
+  // create div for attack icon
+  var attackIconDivEl = document.createElement("div");
+  attackIconDivEl.className = "attack-icon";
+  attackIconDivEl.innerHTML = '<ion-icon name="flame-outline"></ion-icon>';
+  attackDivEl.appendChild(attackIconDivEl);
+  // create div for attack stats
+  var attackStatsDivEl = document.createElement("div");
+  attackStatsDivEl.className = "stats-text";
+  attackStatsDivEl.textContent = playerInfo.attack;
+  attackDivEl.appendChild(attackStatsDivEl);
+  // append attack div to stats container
+  statsDivEl.appendChild(attackDivEl);
+  // create div for defense
+  var defenseDivEl = document.createElement("div");
+  defenseDivEl.className = "stats-element";
+  // create div for defense icon
+  var defenseIconDivEl = document.createElement("div");
+  defenseIconDivEl.className = "defense-icon";
+  defenseIconDivEl.innerHTML = '<ion-icon name="shield-outline"></ion-icon>';
+  defenseDivEl.appendChild(defenseIconDivEl);
+  // create div for defense stats
+  var defenseStatsDivEl = document.createElement("div");
+  defenseStatsDivEl.className = "stats-text";
+  defenseStatsDivEl.textContent = playerInfo.defense;
+  defenseDivEl.appendChild(defenseStatsDivEl);
+  // append defense div to stats container
+  statsDivEl.appendChild(defenseDivEl);
+  // create div for money
+  var moneyDivEl = document.createElement("div");
+  moneyDivEl.className = "stats-element";
+  // create div for money icon
+  var moneyIconDivEl = document.createElement("div");
+  moneyIconDivEl.className = "money-icon";
+  moneyIconDivEl.innerHTML = '<ion-icon name="server-outline"></ion-icon>';
+  moneyDivEl.appendChild(moneyIconDivEl);
+  // create div for money stats
+  var moneyStatsDivEl = document.createElement("div");
+  moneyStatsDivEl.className = "stats-text";
+  moneyStatsDivEl.textContent = playerInfo.money;
+  moneyDivEl.appendChild(moneyStatsDivEl);
+  // append money div to stats container
+  statsDivEl.appendChild(moneyDivEl);
+  // append stats div to inn container
+  trainingContainerEl.appendChild(statsDivEl);
+
+  // CENTER TEXT
+  // create div for inn text
+  var trainingTextDivEl = document.createElement("div");
+  trainingTextDivEl.className = "text-box";
+  trainingTextDivEl.textContent =
+    "Welcome to the Training Yard! Would you like to spend 10 coins to gain 5 attack?";
+  trainingContainerEl.appendChild(trainingTextDivEl);
+
+  // BUTTONS
+  // create div for training buttons
+  var trainingBtnDivEl = document.createElement("div");
+  trainingBtnDivEl.className = "option-btn-container";
+  // create button for buying attack
+  var trainingBtnYes = document.createElement("button");
+  trainingBtnYes.className = "option-btn-yes";
+  trainingBtnYes.setAttribute = ("id", "training-btn-yes");
+  trainingBtnYes.textContent = "Buy Attack";
+  trainingBtnDivEl.appendChild(trainingBtnYes);
+  // create button to go back to town
+  var trainingBtnNo = document.createElement("button");
+  trainingBtnNo.className = "option-btn-no";
+  trainingBtnNo.setAttribute = ("id", "training-btn-no");
+  trainingBtnNo.textContent = "Go Back To Town";
+  trainingBtnDivEl.appendChild(trainingBtnNo);
+  // append button container to inn container
+  trainingContainerEl.appendChild(trainingBtnDivEl);
+
+  // append ALL to main container
+  mainContainer.appendChild(trainingContainerEl);
 }
 
 // LOAD MARKET FUNCTION
