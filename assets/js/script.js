@@ -433,6 +433,22 @@ function loadTraining() {
 
   // append ALL to main container
   mainContainer.appendChild(trainingContainerEl);
+
+  // EVENT LISTENERS
+  trainingBtnYes.addEventListener("click", function () {
+    playerInfo.upgradeAttack();
+    attackStatsDivEl.textContent = playerInfo.attack;
+    moneyStatsDivEl.textContent = playerInfo.money;
+  });
+
+  trainingBtnNo.addEventListener("click", function () {
+    trainingContainerEl.remove();
+    trainingMusic.pause();
+    loadMenu();
+    menuMusic.currentTime = 0;
+    menuMusic.volume = 0.2;
+    menuMusic.play();
+  });
 }
 
 // LOAD MARKET FUNCTION
