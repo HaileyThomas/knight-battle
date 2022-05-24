@@ -98,6 +98,15 @@ header {
     height: auto;
 }
 
+#battle-container {
+    background: url('../images/backgrounds/arenawide.png') center;
+}
+
+#battle-container img {
+    width: 100%;
+    height: auto;
+}
+
 h2 {
     font-family: var(--header-font);
     font-size: 35px;
@@ -234,6 +243,19 @@ h2 {
     background-color: darkred;
 }
 
+.character-container {
+    display: flex;
+    justify-content: center;
+}
+
+.character-image-container {
+    margin: 10px;
+    padding: 5px;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+}
+
 footer {
     width: 70%;
     margin: auto;
@@ -274,6 +296,10 @@ footer {
 
     #market-container {
         background: url('../images/backgrounds/marketnarrow.png') center;
+    }
+
+    #battle-container {
+        background: url('../images/backgrounds/arenanarrow.png') center;
     }
 
     h2 {

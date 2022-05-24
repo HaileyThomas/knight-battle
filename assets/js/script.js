@@ -575,8 +575,125 @@ function loadMarket() {
 
 // LOAD BATTLE ONE FUNCTION
 function loadBattle() {
-  console.log("Battle function is working!");
-  // if enemy.health < 0 battle them etc
+  // create div for menu container
+  battleContainerEl = document.createElement("div");
+  battleContainerEl.className = "content-container";
+  battleContainerEl.setAttribute("id", "battle-container");
+  battleContainerEl.setAttribute("data-state", "visible");
+
+  // STATS INFO
+  // create div for stats info
+  var statsDivEl = document.createElement("div");
+  statsDivEl.className = "stats-box";
+  // create div for health
+  var healthDivEl = document.createElement("div");
+  healthDivEl.className = "stats-element";
+  // create div for health icon
+  var healthIconDivEl = document.createElement("div");
+  healthIconDivEl.className = "health-icon";
+  healthIconDivEl.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+  healthDivEl.appendChild(healthIconDivEl);
+  // create div for health stats
+  var healthStatsDivEl = document.createElement("div");
+  healthStatsDivEl.className = "stats-text";
+  healthStatsDivEl.textContent = playerInfo.health;
+  healthDivEl.appendChild(healthStatsDivEl);
+  // append health div to stats container
+  statsDivEl.appendChild(healthDivEl);
+  // create div for attack
+  var attackDivEl = document.createElement("div");
+  attackDivEl.className = "stats-element";
+  // create div for attack icon
+  var attackIconDivEl = document.createElement("div");
+  attackIconDivEl.className = "attack-icon";
+  attackIconDivEl.innerHTML = '<ion-icon name="flame-outline"></ion-icon>';
+  attackDivEl.appendChild(attackIconDivEl);
+  // create div for attack stats
+  var attackStatsDivEl = document.createElement("div");
+  attackStatsDivEl.className = "stats-text";
+  attackStatsDivEl.textContent = playerInfo.attack;
+  attackDivEl.appendChild(attackStatsDivEl);
+  // append attack div to stats container
+  statsDivEl.appendChild(attackDivEl);
+  // create div for defense
+  var defenseDivEl = document.createElement("div");
+  defenseDivEl.className = "stats-element";
+  // create div for defense icon
+  var defenseIconDivEl = document.createElement("div");
+  defenseIconDivEl.className = "defense-icon";
+  defenseIconDivEl.innerHTML = '<ion-icon name="shield-outline"></ion-icon>';
+  defenseDivEl.appendChild(defenseIconDivEl);
+  // create div for defense stats
+  var defenseStatsDivEl = document.createElement("div");
+  defenseStatsDivEl.className = "stats-text";
+  defenseStatsDivEl.textContent = playerInfo.defense;
+  defenseDivEl.appendChild(defenseStatsDivEl);
+  // append defense div to stats container
+  statsDivEl.appendChild(defenseDivEl);
+  // create div for money
+  var moneyDivEl = document.createElement("div");
+  moneyDivEl.className = "stats-element";
+  // create div for money icon
+  var moneyIconDivEl = document.createElement("div");
+  moneyIconDivEl.className = "money-icon";
+  moneyIconDivEl.innerHTML = '<ion-icon name="server-outline"></ion-icon>';
+  moneyDivEl.appendChild(moneyIconDivEl);
+  // create div for money stats
+  var moneyStatsDivEl = document.createElement("div");
+  moneyStatsDivEl.className = "stats-text";
+  moneyStatsDivEl.textContent = playerInfo.money;
+  moneyDivEl.appendChild(moneyStatsDivEl);
+  // append money div to stats container
+  statsDivEl.appendChild(moneyDivEl);
+  // append stats div to menu container
+  battleContainerEl.appendChild(statsDivEl);
+
+  // CENTER CHARACTER IMAGES
+  // create div container for both images
+  var battleImageContainerEl = document.createElement("div");
+  battleImageContainerEl.className = "character-container";
+  // create div for knight image
+  var knightImageContainerEl = document.createElement("div");
+  knightImageContainerEl.className = "character-image-container";
+  knightImageContainerEl.setAttribute("id", "knight-image-container");
+
+  // add knight image for battle one
+  var knightImageOne = document.createElement("img");
+  knightImageOne.src = "./assets/images/characters/fight1.png";
+  knightImageOne.setAttribute("id", "knight-one");
+  knightImageOne.className = "character-img";
+  knightImageContainerEl.appendChild(knightImageOne);
+
+  // append knight image container to battle container
+  battleImageContainerEl.appendChild(knightImageContainerEl);
+
+  // create div for viking image
+  var vikingImageContainerEl = document.createElement("div");
+  vikingImageContainerEl.className = "character-image-container";
+  vikingImageContainerEl.setAttribute("id", "viking-image-container");
+
+  // add viking image for battle one
+  var vikingFightImage = document.createElement("img");
+  vikingFightImage.src = "./assets/images/characters/vikingfight.png";
+  vikingFightImage.setAttribute("id", "viking-fight");
+  vikingFightImage.className = "character-img";
+  vikingImageContainerEl.appendChild(vikingFightImage);
+
+  // append viking image container to battle container
+  battleImageContainerEl.appendChild(vikingImageContainerEl);
+
+  // append image container to battle container
+  battleContainerEl.appendChild(battleImageContainerEl);
+
+  // CENTER TEXT
+  // create div for battle text
+  var battleTextDivEl = document.createElement("div");
+  battleTextDivEl.className = "text-box";
+  battleTextDivEl.textContent = "BATTLE ONE";
+  battleContainerEl.appendChild(battleTextDivEl);
+
+  // append ALL to main container
+  mainContainer.appendChild(battleContainerEl);
 }
 
 // EVENT LISTENERS
