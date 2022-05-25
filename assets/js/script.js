@@ -35,6 +35,21 @@ var weaponTwoSound = document.getElementById("weapon-hit-two");
 var swordOneSound = document.getElementById("sword-hit-one");
 var swordTwoSound = document.getElementById("sword-hit-two");
 
+// create array with viking sounds
+var vikingBattleSounds = [
+  vikingFightSound,
+  vikingWinSound,
+  vikingLoseSound,
+  knightAhSound,
+  knightGruntSound,
+  knightOhSound,
+  knightYeahSound,
+  weaponOneSound,
+  weaponTwoSound,
+  swordOneSound,
+  swordTwoSound,
+];
+
 // GAME
 
 // function to generate a random number
@@ -745,7 +760,14 @@ function loadBattle() {
 
   // BATTLE ONE EVENT LISTENER
   fightBtn.addEventListener("click", function () {
-    // play fight noise
+    // play random fight noise
+    function randomSound() {
+      var random = Math.floor(Math.random() * vikingBattleSounds.length);
+      vikingBattleSounds[random].play();
+    }
+    randomSound();
+    console.log("Viking Health: " + vikingInfo.health);
+    console.log("Viking Attack: " + vikingInfo.attack);
     // check player health
   });
 }
