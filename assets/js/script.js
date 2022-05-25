@@ -8,14 +8,30 @@ var innContainerEl;
 var trainingContainerEl;
 
 // SOUNDS
+// MUSIC
 var menuMusic = document.getElementById("menu-audio");
-var startSound = document.getElementById("start-sound");
 var innMusic = document.getElementById("inn-audio");
 var marketMusic = document.getElementById("market-audio");
 var trainingMusic = document.getElementById("training-audio");
 var battleMusic = document.getElementById("battle-audio");
-
+// EFFECTS
+var startSound = document.getElementById("start-sound");
+// VIKING SOUNDS
+var vikingFightSound = document.getElementById("viking-battlecry");
+var vikingWinSound = document.getElementById("viking-battlecry-long");
+var vikingLoseSound = document.getElementById("viking-lose");
+// KNIGHT SOUNDS
+var knightAhSound = document.getElementById("knight-ah");
+var knightGruntSound = document.getElementById("knight-grunt");
+var knightOhSound = document.getElementById("knight-oh");
+var knightYeahSound = document.getElementById("knight-yeah");
 // GAME
+
+// function to generate a random number
+var randomNumber = function (min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+  return value;
+};
 
 // PLAYER INFO
 var playerInfo = {
@@ -54,6 +70,26 @@ var playerInfo = {
     }
   },
 };
+
+// ENEMY INFO
+
+// VIKING INFO
+var vikingInfo = {
+  health: randomNumber(60, 80),
+  attack: randomNumber(5, 8),
+};
+// PIG INFO
+var pigInfo = {
+  health: randomNumber(70, 90),
+  attack: randomNumber(7, 10),
+};
+// GOBLIN INFO
+var goblinInfo = {
+  health: randomNumber(80, 100),
+  attack: randomNumber(8, 12),
+};
+
+// GAME START
 
 // LOAD MENU FUNCTION
 function loadMenu() {
@@ -656,44 +692,52 @@ function loadBattle() {
   var knightImageContainerEl = document.createElement("div");
   knightImageContainerEl.className = "character-image-container";
   knightImageContainerEl.setAttribute("id", "knight-image-container");
-
   // add knight image for battle one
   var knightImageOne = document.createElement("img");
   knightImageOne.src = "./assets/images/characters/fight1.png";
   knightImageOne.setAttribute("id", "knight-one");
   knightImageOne.className = "character-img";
   knightImageContainerEl.appendChild(knightImageOne);
-
   // append knight image container to battle container
   battleImageContainerEl.appendChild(knightImageContainerEl);
-
   // create div for viking image
   var vikingImageContainerEl = document.createElement("div");
   vikingImageContainerEl.className = "character-image-container";
   vikingImageContainerEl.setAttribute("id", "viking-image-container");
-
   // add viking image for battle one
   var vikingFightImage = document.createElement("img");
   vikingFightImage.src = "./assets/images/characters/vikingfight.png";
   vikingFightImage.setAttribute("id", "viking-fight");
   vikingFightImage.className = "character-img";
   vikingImageContainerEl.appendChild(vikingFightImage);
-
   // append viking image container to battle container
   battleImageContainerEl.appendChild(vikingImageContainerEl);
-
   // append image container to battle container
   battleContainerEl.appendChild(battleImageContainerEl);
+
+  // FIGHT BUTTON
+  var fightBtn = document.createElement("button");
+  fightBtn.className = "fight-btn";
+  fightBtn.setAttribute("id", "battleOne-fight-btn");
+  fightBtn.textContent = "Fight!";
+  battleContainerEl.appendChild(fightBtn);
 
   // CENTER TEXT
   // create div for battle text
   var battleTextDivEl = document.createElement("div");
   battleTextDivEl.className = "text-box";
   battleTextDivEl.textContent = "BATTLE ONE";
+  battleTextDivEl.setAttribute("id", "battle-text-box");
   battleContainerEl.appendChild(battleTextDivEl);
 
   // append ALL to main container
   mainContainer.appendChild(battleContainerEl);
+
+  // BATTLE ONE EVENT LISTENER
+  fightBtn.addEventListener("click", function () {
+    // play fight noise
+    // check player health
+  });
 }
 
 // EVENT LISTENERS

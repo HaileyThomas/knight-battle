@@ -256,6 +256,11 @@ h2 {
     border-radius: 10px;
 }
 
+#battle-text-box {
+    max-height: 150px;
+    overflow: auto;
+}
+
 footer {
     width: 70%;
     margin: auto;
