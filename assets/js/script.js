@@ -8,14 +8,18 @@ var innContainerEl;
 var trainingContainerEl;
 
 // SOUNDS
+// EFFECTS
+var startSound = document.getElementById("start-sound");
+var winLevelSound = document.getElementById("win-level");
+var winBattleSound = document.getElementById("win-battle");
+var winGameSound = document.getElementById("win-game");
+var loseGameSound = document.getElementById("lose-game");
 // MUSIC
 var menuMusic = document.getElementById("menu-audio");
 var innMusic = document.getElementById("inn-audio");
 var marketMusic = document.getElementById("market-audio");
 var trainingMusic = document.getElementById("training-audio");
 var battleMusic = document.getElementById("battle-audio");
-// EFFECTS
-var startSound = document.getElementById("start-sound");
 // VIKING SOUNDS
 var vikingFightSound = document.getElementById("viking-battlecry");
 var vikingWinSound = document.getElementById("viking-battlecry-long");
@@ -25,6 +29,12 @@ var knightAhSound = document.getElementById("knight-ah");
 var knightGruntSound = document.getElementById("knight-grunt");
 var knightOhSound = document.getElementById("knight-oh");
 var knightYeahSound = document.getElementById("knight-yeah");
+// WEAPON SOUNDS
+var weaponOneSound = document.getElementById("weapon-hit-one");
+var weaponTwoSound = document.getElementById("weapon-hit-two");
+var swordOneSound = document.getElementById("sword-hit-one");
+var swordTwoSound = document.getElementById("sword-hit-two");
+
 // GAME
 
 // function to generate a random number
