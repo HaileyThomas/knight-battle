@@ -900,7 +900,7 @@ function loadBattleOne() {
           endGameBtn.className = "fight-btn";
           endGameBtn.setAttribute("id", "battleOne-end-btn");
           endGameBtn.textContent = "Try Again";
-          btnContainerEl.appendChild(backToMenuBtn);
+          btnContainerEl.appendChild(endGameBtn);
           // event listener to end game
           endGameBtn.addEventListener("click", function () {
             // refresh page
@@ -928,7 +928,7 @@ function loadBattleOne() {
       endGameBtn.className = "fight-btn";
       endGameBtn.setAttribute("id", "battleOne-end-btn");
       endGameBtn.textContent = "Try Again";
-      btnContainerEl.appendChild(backToMenuBtn);
+      btnContainerEl.appendChild(endGameBtn);
       // event listener to end game
       endGameBtn.addEventListener("click", function () {
         // refresh page
@@ -1207,7 +1207,7 @@ function loadBattleTwo() {
       endGameBtn.className = "fight-btn";
       endGameBtn.setAttribute("id", "battleTwo-end-btn");
       endGameBtn.textContent = "Try Again";
-      btnContainerEl.appendChild(backToMenuBtn);
+      btnContainerEl.appendChild(endGameBtn);
       // event listener to end game
       endGameBtn.addEventListener("click", function () {
         // refresh page
