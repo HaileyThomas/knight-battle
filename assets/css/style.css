@@ -12,7 +12,6 @@
 body {
     background-color: lightgrey;
     font-family: var(--main-font);
-    font-weight: bold;
 }
 
 header {

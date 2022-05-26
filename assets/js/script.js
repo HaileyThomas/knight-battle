@@ -751,7 +751,7 @@ function loadBattle() {
   // create div for battle text
   var battleTextDivEl = document.createElement("div");
   battleTextDivEl.className = "text-box";
-  battleTextDivEl.textContent = "BATTLE ONE";
+  battleTextDivEl.innerHTML = "<b>BATTLE ONE</b>: Viking Brut Shakesbeer";
   battleTextDivEl.setAttribute("id", "battle-text-box");
   battleContainerEl.appendChild(battleTextDivEl);
 
@@ -772,6 +772,8 @@ function loadBattle() {
       if (playerInfo.defense > 0) {
         // subtract enemy attack from defense
         playerInfo.defense = vikingInfo.attack - playerInfo.defense;
+        // attack viking
+        vikingInfo.health = vikingInfo.health - playerInfo.attack;
         // check to see if defense is at zero
         if (playerInfo.defense <= 0) {
           // take remaining attack and subtract from health
@@ -783,23 +785,42 @@ function loadBattle() {
           // print new defense stat to stat bar
           defenseStatsDivEl.textContent = playerInfo.defense;
           // print attack info in text box
-          var newAttackText = document.createElement("p");
-          newAttackText.className = "info-text";
-          newAttackText.innerHTML =
-            "<b>Sir. Prise</b> attacked <b>Shakesbeer</b> by " +
+          var newDefAttackText = document.createElement("p");
+          newDefAttackText.className = "info-text";
+          newDefAttackText.innerHTML =
+            "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> attacked <b>Shakesbeer</b> by " +
             playerInfo.attack +
-            " points! <b>Shakesbeer</b> hit <b>Sir. Prise</b> by " +
+            " points! <b>Shakesbeer</b> attacked <b>Sir. Prise</b> by " +
             vikingInfo.attack +
             " points! <b>Shakesbeer</b> has " +
             vikingInfo.health +
             " health left! Remaining defense added to health!";
-          battleTextDivEl.appendChild(newAttackText);
+          battleTextDivEl.appendChild(newDefAttackText);
         } else {
           // print new defense stat on stat bar
           defenseStatsDivEl.textContent = playerInfo.defense;
         }
       } else {
         // regular attack
+        playerInfo.health = playerInfo.health - vikingInfo.attack;
+        // attack viking
+        vikingInfo.health = vikingInfo.health - playerInfo.attack;
+        // update stats bar
+        healthStatsDivEl.textContent = playerInfo.health;
+        // print attack info in text box
+        var newAttackText = document.createElement("p");
+        newAttackText.className = "info-text";
+        newAttackText.innerHTML =
+          "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> attacked <b>Shakesbeer</b> by " +
+          playerInfo.attack +
+          " points! <b>Shakesbeer</b> attacked <b>Sir. Prise</b> by " +
+          vikingInfo.attack +
+          " points! <b>Shakesbeer</b> has " +
+          vikingInfo.health +
+          " health left!";
+        battleTextDivEl.appendChild(newAttackText);
+        // check viking health
+        // check player health
       }
     } else {
       // player health is below zero, end game
