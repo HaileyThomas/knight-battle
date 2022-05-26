@@ -29,6 +29,11 @@ var pigGruntSound = document.getElementById("pig-grunt");
 var pigGruntLongSound = document.getElementById("pig-grunt-long");
 var pigGruntShortSound = document.getElementById("pig-grunt-short");
 var pigWhineSound = document.getElementById("pig-whine");
+// GOBLIN SOUNDS
+var goblinDeathSound = document.getElementById("goblin-death");
+var goblinGrowlSound = document.getElementById("goblin-growl");
+var goblinLaughSound = document.getElementById("goblin-laugh");
+var goblinSnarlSound = document.getElementById("goblin-snarl");
 // KNIGHT SOUNDS
 var knightAhSound = document.getElementById("knight-ah");
 var knightGruntSound = document.getElementById("knight-grunt");
@@ -61,6 +66,22 @@ var pigBattleSounds = [
   pigGruntLongSound,
   pigGruntShortSound,
   pigWhineSound,
+  knightAhSound,
+  knightGruntSound,
+  knightOhSound,
+  knightYeahSound,
+  weaponOneSound,
+  weaponTwoSound,
+  swordOneSound,
+  swordTwoSound,
+];
+
+// array for goblin sounds
+var goblinBattleSounds = [
+  goblinDeathSound,
+  goblinGrowlSound,
+  goblinLaughSound,
+  goblinSnarlSound,
   knightAhSound,
   knightGruntSound,
   knightOhSound,
