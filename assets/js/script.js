@@ -845,7 +845,6 @@ function loadBattle() {
           backToMenuBtn.setAttribute("id", "battleOne-menu-btn");
           backToMenuBtn.textContent = "Go Back To Town";
           btnContainerEl.appendChild(backToMenuBtn);
-
           // event listener to go back to town
           backToMenuBtn.addEventListener("click", function () {
             battleContainerEl.remove();
@@ -859,10 +858,57 @@ function loadBattle() {
         // check player health
         if (playerInfo.health <= 0) {
           // lose battle scene
+          // change images
+          knightImageOne.src = "./assets/images/characters/ko.png";
+          vikingFightImage.src = "./assets/images/characters/vikingwin.png";
+          // play sound
+          loseGameSound.play();
+          // print lose text to text box
+          var newLoseText = document.createElement("p");
+          newLoseText.className = "info-text";
+          newLoseText.innerHTML =
+            "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> has lost the battle! Try again to save the day!";
+          battleTextDivEl.appendChild(newLoseText);
+          // change button to refresh page
+          fightBtn.remove();
+          var endGameBtn = document.createElement("button");
+          endGameBtn.className = "fight-btn";
+          endGameBtn.setAttribute("id", "battleOne-end-btn");
+          endGameBtn.textContent = "Try Again";
+          btnContainerEl.appendChild(backToMenuBtn);
+          // event listener to end game
+          endGameBtn.addEventListener("click", function () {
+            // refresh page
+            document.location.reload();
+          });
         }
       }
     } else {
       // player health is below zero, end game
+      // lose battle scene
+      // change images
+      knightImageOne.src = "./assets/images/characters/ko.png";
+      vikingFightImage.src = "./assets/images/characters/vikingwin.png";
+      // play sound
+      loseGameSound.play();
+      // print lose text to text box
+      var newLoseText = document.createElement("p");
+      newLoseText.className = "info-text";
+      newLoseText.innerHTML =
+        "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> has lost the battle! Try again to save the day!";
+      battleTextDivEl.appendChild(newLoseText);
+      // change button to refresh page
+      fightBtn.remove();
+      var endGameBtn = document.createElement("button");
+      endGameBtn.className = "fight-btn";
+      endGameBtn.setAttribute("id", "battleOne-end-btn");
+      endGameBtn.textContent = "Try Again";
+      btnContainerEl.appendChild(backToMenuBtn);
+      // event listener to end game
+      endGameBtn.addEventListener("click", function () {
+        // refresh page
+        document.location.reload();
+      });
     }
   });
 }
