@@ -24,6 +24,11 @@ var battleMusic = document.getElementById("battle-audio");
 var vikingFightSound = document.getElementById("viking-battlecry");
 var vikingWinSound = document.getElementById("viking-battlecry-long");
 var vikingLoseSound = document.getElementById("viking-lose");
+// PIG SOUNDS
+var pigGruntSound = document.getElementById("pig-grunt");
+var pigGruntLongSound = document.getElementById("pig-grunt-long");
+var pigGruntShortSound = document.getElementById("pig-grunt-short");
+var pigWhineSound = document.getElementById("pig-whine");
 // KNIGHT SOUNDS
 var knightAhSound = document.getElementById("knight-ah");
 var knightGruntSound = document.getElementById("knight-grunt");
@@ -40,6 +45,22 @@ var vikingBattleSounds = [
   vikingFightSound,
   vikingWinSound,
   vikingLoseSound,
+  knightAhSound,
+  knightGruntSound,
+  knightOhSound,
+  knightYeahSound,
+  weaponOneSound,
+  weaponTwoSound,
+  swordOneSound,
+  swordTwoSound,
+];
+
+// array for pig sounds
+var pigBattleSounds = [
+  pigGruntSound,
+  pigGruntLongSound,
+  pigGruntShortSound,
+  pigWhineSound,
   knightAhSound,
   knightGruntSound,
   knightOhSound,
@@ -261,10 +282,14 @@ function loadMenu() {
 
   fightBtn.addEventListener("click", function () {
     menuContainerEl.remove();
-    loadBattle();
     menuMusic.pause();
     battleMusic.volume = 0.6;
     battleMusic.play();
+    if (vikingInfo.health > 0) {
+      loadBattleOne();
+    } else if (pigInfo.health > 0) {
+      loadBattleTwo();
+    }
   });
 }
 
@@ -635,7 +660,7 @@ function loadMarket() {
 }
 
 // LOAD BATTLE ONE FUNCTION
-function loadBattle() {
+function loadBattleOne() {
   // create div for menu container
   battleContainerEl = document.createElement("div");
   battleContainerEl.className = "content-container";
@@ -911,6 +936,11 @@ function loadBattle() {
       });
     }
   });
+}
+
+// LOAD BATTLE TWO FUNCTION
+function loadBattleTwo() {
+  // battle two will go here
 }
 
 // EVENT LISTENERS
