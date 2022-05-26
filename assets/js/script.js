@@ -766,9 +766,44 @@ function loadBattle() {
       vikingBattleSounds[random].play();
     }
     randomSound();
-    console.log("Viking Health: " + vikingInfo.health);
-    console.log("Viking Attack: " + vikingInfo.attack);
     // check player health
+    if (playerInfo.health > 0) {
+      // check to see if player has defense
+      if (playerInfo.defense > 0) {
+        // subtract enemy attack from defense
+        playerInfo.defense = vikingInfo.attack - playerInfo.defense;
+        // check to see if defense is at zero
+        if (playerInfo.defense <= 0) {
+          // take remaining attack and subtract from health
+          playerInfo.health = playerInfo.defense + playerInfo.health;
+          // print new health stat on stat bar
+          healthStatsDivEl.textContent = playerInfo.health;
+          // set defense to zero
+          playerInfo.defense = 0;
+          // print new defense stat to stat bar
+          defenseStatsDivEl.textContent = playerInfo.defense;
+          // print attack info in text box
+          var newAttackText = document.createElement("p");
+          newAttackText.className = "info-text";
+          newAttackText.innerHTML =
+            "<b>Sir. Prise</b> attacked <b>Shakesbeer</b> by " +
+            playerInfo.attack +
+            " points! <b>Shakesbeer</b> hit <b>Sir. Prise</b> by " +
+            vikingInfo.attack +
+            " points! <b>Shakesbeer</b> has " +
+            vikingInfo.health +
+            " health left! Remaining defense added to health!";
+          battleTextDivEl.appendChild(newAttackText);
+        } else {
+          // print new defense stat on stat bar
+          defenseStatsDivEl.textContent = playerInfo.defense;
+        }
+      } else {
+        // regular attack
+      }
+    } else {
+      // player health is below zero, end game
+    }
   });
 }
 
