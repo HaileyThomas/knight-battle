@@ -741,11 +741,13 @@ function loadBattle() {
   battleContainerEl.appendChild(battleImageContainerEl);
 
   // FIGHT BUTTON
+  var btnContainerEl = document.createElement("div");
   var fightBtn = document.createElement("button");
   fightBtn.className = "fight-btn";
   fightBtn.setAttribute("id", "battleOne-fight-btn");
   fightBtn.textContent = "Fight!";
-  battleContainerEl.appendChild(fightBtn);
+  btnContainerEl.appendChild(fightBtn);
+  battleContainerEl.appendChild(btnContainerEl);
 
   // CENTER TEXT
   // create div for battle text
@@ -820,7 +822,44 @@ function loadBattle() {
           " health left!";
         battleTextDivEl.appendChild(newAttackText);
         // check viking health
+        if (vikingInfo.health <= 0) {
+          // win battle scene
+          // change images
+          knightImageOne.src = "./assets/images/characters/win.png";
+          vikingFightImage.src = "./assets/images/characters/vikingko.png";
+          // play sound
+          winBattleSound.play();
+          // add money
+          playerInfo.money = playerInfo.money + 20;
+          moneyStatsDivEl.textContent = playerInfo.money;
+          // print win text in text box
+          var newWinText = document.createElement("p");
+          newWinText.className = "info-text";
+          newWinText.innerHTML =
+            "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> has won the battle! 20 coins has been added to your inventory!";
+          battleTextDivEl.appendChild(newWinText);
+          // change button to go back to town
+          fightBtn.remove();
+          var backToMenuBtn = document.createElement("button");
+          backToMenuBtn.className = "green-btn";
+          backToMenuBtn.setAttribute("id", "battleOne-menu-btn");
+          backToMenuBtn.textContent = "Go Back To Town";
+          btnContainerEl.appendChild(backToMenuBtn);
+
+          // event listener to go back to town
+          backToMenuBtn.addEventListener("click", function () {
+            battleContainerEl.remove();
+            battleMusic.pause();
+            loadMenu();
+            menuMusic.currentTime = 0;
+            menuMusic.volume = 0.2;
+            menuMusic.play();
+          });
+        }
         // check player health
+        if (playerInfo.health <= 0) {
+          // lose battle scene
+        }
       }
     } else {
       // player health is below zero, end game
