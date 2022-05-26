@@ -6,6 +6,7 @@ var mainContainer = document.querySelector("#main-container");
 var menuContainerEl;
 var innContainerEl;
 var trainingContainerEl;
+var winContainerEl;
 
 // SOUNDS
 // EFFECTS
@@ -1521,7 +1522,92 @@ function loadBattleThree() {
 
 // LOAD WIN PAGE
 function loadWin() {
-  // load win page
+  // create div for menu container
+  winContainerEl = document.createElement("div");
+  winContainerEl.className = "content-container";
+  winContainerEl.setAttribute("id", "win-container");
+  winContainerEl.setAttribute("data-state", "visible");
+
+  // STATS INFO
+  // create div for stats info
+  var statsDivEl = document.createElement("div");
+  statsDivEl.className = "stats-box";
+  // create div for health
+  var healthDivEl = document.createElement("div");
+  healthDivEl.className = "stats-element";
+  // create div for health icon
+  var healthIconDivEl = document.createElement("div");
+  healthIconDivEl.className = "health-icon";
+  healthIconDivEl.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+  healthDivEl.appendChild(healthIconDivEl);
+  // create div for health stats
+  var healthStatsDivEl = document.createElement("div");
+  healthStatsDivEl.className = "stats-text";
+  healthStatsDivEl.textContent = playerInfo.health;
+  healthDivEl.appendChild(healthStatsDivEl);
+  // append health div to stats container
+  statsDivEl.appendChild(healthDivEl);
+  // create div for attack
+  var attackDivEl = document.createElement("div");
+  attackDivEl.className = "stats-element";
+  // create div for attack icon
+  var attackIconDivEl = document.createElement("div");
+  attackIconDivEl.className = "attack-icon";
+  attackIconDivEl.innerHTML = '<ion-icon name="flame-outline"></ion-icon>';
+  attackDivEl.appendChild(attackIconDivEl);
+  // create div for attack stats
+  var attackStatsDivEl = document.createElement("div");
+  attackStatsDivEl.className = "stats-text";
+  attackStatsDivEl.textContent = playerInfo.attack;
+  attackDivEl.appendChild(attackStatsDivEl);
+  // append attack div to stats container
+  statsDivEl.appendChild(attackDivEl);
+  // create div for defense
+  var defenseDivEl = document.createElement("div");
+  defenseDivEl.className = "stats-element";
+  // create div for defense icon
+  var defenseIconDivEl = document.createElement("div");
+  defenseIconDivEl.className = "defense-icon";
+  defenseIconDivEl.innerHTML = '<ion-icon name="shield-outline"></ion-icon>';
+  defenseDivEl.appendChild(defenseIconDivEl);
+  // create div for defense stats
+  var defenseStatsDivEl = document.createElement("div");
+  defenseStatsDivEl.className = "stats-text";
+  defenseStatsDivEl.textContent = playerInfo.defense;
+  defenseDivEl.appendChild(defenseStatsDivEl);
+  // append defense div to stats container
+  statsDivEl.appendChild(defenseDivEl);
+  // create div for money
+  var moneyDivEl = document.createElement("div");
+  moneyDivEl.className = "stats-element";
+  // create div for money icon
+  var moneyIconDivEl = document.createElement("div");
+  moneyIconDivEl.className = "money-icon";
+  moneyIconDivEl.innerHTML = '<ion-icon name="server-outline"></ion-icon>';
+  moneyDivEl.appendChild(moneyIconDivEl);
+  // create div for money stats
+  var moneyStatsDivEl = document.createElement("div");
+  moneyStatsDivEl.className = "stats-text";
+  moneyStatsDivEl.textContent = playerInfo.money;
+  moneyDivEl.appendChild(moneyStatsDivEl);
+  // append money div to stats container
+  statsDivEl.appendChild(moneyDivEl);
+  // append stats div to win container
+  winContainerEl.appendChild(statsDivEl);
+
+  // CENTER TEXT
+  // create div for win text
+  var winTextDivEl = document.createElement("div");
+  winTextDivEl.className = "text-box";
+  // add win text
+  // add form
+  // add header for high scores
+  // add high scores
+  // append to win container
+  winContainerEl.appendChild(winTextDivEl);
+
+  // append ALL to main container
+  mainContainer.appendChild(winContainerEl);
 }
 
 // EVENT LISTENERS
