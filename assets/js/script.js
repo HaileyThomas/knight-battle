@@ -940,7 +940,281 @@ function loadBattleOne() {
 
 // LOAD BATTLE TWO FUNCTION
 function loadBattleTwo() {
-  // battle two will go here
+  // create div for menu container
+  battleContainerEl = document.createElement("div");
+  battleContainerEl.className = "content-container";
+  battleContainerEl.setAttribute("id", "battle-container");
+  battleContainerEl.setAttribute("data-state", "visible");
+
+  // STATS INFO
+  // create div for stats info
+  var statsDivEl = document.createElement("div");
+  statsDivEl.className = "stats-box";
+  // create div for health
+  var healthDivEl = document.createElement("div");
+  healthDivEl.className = "stats-element";
+  // create div for health icon
+  var healthIconDivEl = document.createElement("div");
+  healthIconDivEl.className = "health-icon";
+  healthIconDivEl.innerHTML = '<ion-icon name="heart-outline"></ion-icon>';
+  healthDivEl.appendChild(healthIconDivEl);
+  // create div for health stats
+  var healthStatsDivEl = document.createElement("div");
+  healthStatsDivEl.className = "stats-text";
+  healthStatsDivEl.textContent = playerInfo.health;
+  healthDivEl.appendChild(healthStatsDivEl);
+  // append health div to stats container
+  statsDivEl.appendChild(healthDivEl);
+  // create div for attack
+  var attackDivEl = document.createElement("div");
+  attackDivEl.className = "stats-element";
+  // create div for attack icon
+  var attackIconDivEl = document.createElement("div");
+  attackIconDivEl.className = "attack-icon";
+  attackIconDivEl.innerHTML = '<ion-icon name="flame-outline"></ion-icon>';
+  attackDivEl.appendChild(attackIconDivEl);
+  // create div for attack stats
+  var attackStatsDivEl = document.createElement("div");
+  attackStatsDivEl.className = "stats-text";
+  attackStatsDivEl.textContent = playerInfo.attack;
+  attackDivEl.appendChild(attackStatsDivEl);
+  // append attack div to stats container
+  statsDivEl.appendChild(attackDivEl);
+  // create div for defense
+  var defenseDivEl = document.createElement("div");
+  defenseDivEl.className = "stats-element";
+  // create div for defense icon
+  var defenseIconDivEl = document.createElement("div");
+  defenseIconDivEl.className = "defense-icon";
+  defenseIconDivEl.innerHTML = '<ion-icon name="shield-outline"></ion-icon>';
+  defenseDivEl.appendChild(defenseIconDivEl);
+  // create div for defense stats
+  var defenseStatsDivEl = document.createElement("div");
+  defenseStatsDivEl.className = "stats-text";
+  defenseStatsDivEl.textContent = playerInfo.defense;
+  defenseDivEl.appendChild(defenseStatsDivEl);
+  // append defense div to stats container
+  statsDivEl.appendChild(defenseDivEl);
+  // create div for money
+  var moneyDivEl = document.createElement("div");
+  moneyDivEl.className = "stats-element";
+  // create div for money icon
+  var moneyIconDivEl = document.createElement("div");
+  moneyIconDivEl.className = "money-icon";
+  moneyIconDivEl.innerHTML = '<ion-icon name="server-outline"></ion-icon>';
+  moneyDivEl.appendChild(moneyIconDivEl);
+  // create div for money stats
+  var moneyStatsDivEl = document.createElement("div");
+  moneyStatsDivEl.className = "stats-text";
+  moneyStatsDivEl.textContent = playerInfo.money;
+  moneyDivEl.appendChild(moneyStatsDivEl);
+  // append money div to stats container
+  statsDivEl.appendChild(moneyDivEl);
+  // append stats div to menu container
+  battleContainerEl.appendChild(statsDivEl);
+
+  // CENTER CHARACTER IMAGES
+  // create div container for both images
+  var battleImageContainerEl = document.createElement("div");
+  battleImageContainerEl.className = "character-container";
+  // create div for knight image
+  var knightImageContainerEl = document.createElement("div");
+  knightImageContainerEl.className = "character-image-container";
+  knightImageContainerEl.setAttribute("id", "knight-image-container");
+  // add knight image for battle two
+  var knightImageTwo = document.createElement("img");
+  knightImageTwo.src = "./assets/images/characters/fight2.png";
+  knightImageTwo.setAttribute("id", "knight-two");
+  knightImageTwo.className = "character-img";
+  knightImageContainerEl.appendChild(knightImageTwo);
+  // append knight image container to battle container
+  battleImageContainerEl.appendChild(knightImageContainerEl);
+  // create div for pig image
+  var pigImageContainerEl = document.createElement("div");
+  pigImageContainerEl.className = "character-image-container";
+  pigImageContainerEl.setAttribute("id", "pig-image-container");
+  // add pig image for battle two
+  var pigFightImage = document.createElement("img");
+  pigFightImage.src = "./assets/images/characters/pigfight.png";
+  pigFightImage.setAttribute("id", "pig-fight");
+  pigFightImage.className = "character-img";
+  pigImageContainerEl.appendChild(pigFightImage);
+  // append pig image container to battle container
+  battleImageContainerEl.appendChild(pigImageContainerEl);
+  // append image container to battle container
+  battleContainerEl.appendChild(battleImageContainerEl);
+
+  // FIGHT BUTTON
+  var btnContainerEl = document.createElement("div");
+  var fightBtn = document.createElement("button");
+  fightBtn.className = "fight-btn";
+  fightBtn.setAttribute("id", "battleTwo-fight-btn");
+  fightBtn.textContent = "Fight!";
+  btnContainerEl.appendChild(fightBtn);
+  battleContainerEl.appendChild(btnContainerEl);
+
+  // CENTER TEXT
+  // create div for battle text
+  var battleTextDivEl = document.createElement("div");
+  battleTextDivEl.className = "text-box";
+  battleTextDivEl.innerHTML = "<b>BATTLE TWO</b>: Pig Knight Sir. Oinksalot";
+  battleTextDivEl.setAttribute("id", "battle-text-box");
+  battleContainerEl.appendChild(battleTextDivEl);
+
+  // append ALL to main container
+  mainContainer.appendChild(battleContainerEl);
+
+  // BATTLE TWO EVENT LISTENER
+  fightBtn.addEventListener("click", function () {
+    // play random fight noise
+    function randomSound() {
+      var random = Math.floor(Math.random() * pigBattleSounds.length);
+      pigBattleSounds[random].play();
+    }
+    randomSound();
+    // check player health
+    if (playerInfo.health > 0) {
+      // check to see if player has defense
+      if (playerInfo.defense > 0) {
+        // subtract enemy attack from defense
+        playerInfo.defense = pigInfo.attack - playerInfo.defense;
+        // attack pig
+        pigInfo.health = pigInfo.health - playerInfo.attack;
+        // check to see if defense is at zero
+        if (playerInfo.defense <= 0) {
+          // take remaining attack and subtract from health
+          playerInfo.health = playerInfo.defense + playerInfo.health;
+          // print new health stat on stat bar
+          healthStatsDivEl.textContent = playerInfo.health;
+          // set defense to zero
+          playerInfo.defense = 0;
+          // print new defense stat to stat bar
+          defenseStatsDivEl.textContent = playerInfo.defense;
+          // print attack info in text box
+          var newDefAttackText = document.createElement("p");
+          newDefAttackText.className = "info-text";
+          newDefAttackText.innerHTML =
+            "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> attacked <b>Sir. Oinksalot</b> by " +
+            playerInfo.attack +
+            " points! <b>Sir. Oinksalot</b> attacked <b>Sir. Prise</b> by " +
+            pigInfo.attack +
+            " points! <b>Sir. Oinksalot</b> has " +
+            pigInfo.health +
+            " health left! Remaining defense added to health!";
+          battleTextDivEl.appendChild(newDefAttackText);
+        } else {
+          // print new defense stat on stat bar
+          defenseStatsDivEl.textContent = playerInfo.defense;
+        }
+      } else {
+        // regular attack
+        playerInfo.health = playerInfo.health - pigInfo.attack;
+        // attack pig
+        pigInfo.health = pigInfo.health - playerInfo.attack;
+        // update stats bar
+        healthStatsDivEl.textContent = playerInfo.health;
+        // print attack info in text box
+        var newAttackText = document.createElement("p");
+        newAttackText.className = "info-text";
+        newAttackText.innerHTML =
+          "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> attacked <b>Sir. Oinksalot</b> by " +
+          playerInfo.attack +
+          " points! <b>Sir. Oinksalot</b> attacked <b>Sir. Prise</b> by " +
+          pigInfo.attack +
+          " points! <b>Sir. Oinksalot</b> has " +
+          pigInfo.health +
+          " health left!";
+        battleTextDivEl.appendChild(newAttackText);
+        // check pig health
+        if (pigInfo.health <= 0) {
+          // win battle scene
+          // change images
+          knightImageTwo.src = "./assets/images/characters/win.png";
+          pigFightImage.src = "./assets/images/characters/pigko.png";
+          // play sound
+          winBattleSound.play();
+          // add money
+          playerInfo.money = playerInfo.money + 20;
+          moneyStatsDivEl.textContent = playerInfo.money;
+          // print win text in text box
+          var newWinText = document.createElement("p");
+          newWinText.className = "info-text";
+          newWinText.innerHTML =
+            "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> has won the battle! 20 coins has been added to your inventory!";
+          battleTextDivEl.appendChild(newWinText);
+          // change button to go back to town
+          fightBtn.remove();
+          var backToMenuBtn = document.createElement("button");
+          backToMenuBtn.className = "green-btn";
+          backToMenuBtn.setAttribute("id", "battleTwo-menu-btn");
+          backToMenuBtn.textContent = "Go Back To Town";
+          btnContainerEl.appendChild(backToMenuBtn);
+          // event listener to go back to town
+          backToMenuBtn.addEventListener("click", function () {
+            battleContainerEl.remove();
+            battleMusic.pause();
+            loadMenu();
+            menuMusic.currentTime = 0;
+            menuMusic.volume = 0.2;
+            menuMusic.play();
+          });
+        }
+        // check player health
+        if (playerInfo.health <= 0) {
+          // lose battle scene
+          // change images
+          knightImageTwo.src = "./assets/images/characters/ko.png";
+          vikingFightImage.src = "./assets/images/characters/vikingwin.png";
+          // play sound
+          loseGameSound.play();
+          // print lose text to text box
+          var newLoseText = document.createElement("p");
+          newLoseText.className = "info-text";
+          newLoseText.innerHTML =
+            "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> has lost the battle! Try again to save the day!";
+          battleTextDivEl.appendChild(newLoseText);
+          // change button to refresh page
+          fightBtn.remove();
+          var endGameBtn = document.createElement("button");
+          endGameBtn.className = "fight-btn";
+          endGameBtn.setAttribute("id", "battleOne-end-btn");
+          endGameBtn.textContent = "Try Again";
+          btnContainerEl.appendChild(backToMenuBtn);
+          // event listener to end game
+          endGameBtn.addEventListener("click", function () {
+            // refresh page
+            document.location.reload();
+          });
+        }
+      }
+    } else {
+      // player health is below zero, end game
+      // lose battle scene
+      // change images
+      knightImageTwo.src = "./assets/images/characters/ko.png";
+      pigFightImage.src = "./assets/images/characters/pigwin.png";
+      // play sound
+      loseGameSound.play();
+      // print lose text to text box
+      var newLoseText = document.createElement("p");
+      newLoseText.className = "info-text";
+      newLoseText.innerHTML =
+        "<ion-icon name='arrow-forward-outline'></ion-icon> <b>Sir. Prise</b> has lost the battle! Try again to save the day!";
+      battleTextDivEl.appendChild(newLoseText);
+      // change button to refresh page
+      fightBtn.remove();
+      var endGameBtn = document.createElement("button");
+      endGameBtn.className = "fight-btn";
+      endGameBtn.setAttribute("id", "battleTwo-end-btn");
+      endGameBtn.textContent = "Try Again";
+      btnContainerEl.appendChild(backToMenuBtn);
+      // event listener to end game
+      endGameBtn.addEventListener("click", function () {
+        // refresh page
+        document.location.reload();
+      });
+    }
+  });
 }
 
 // EVENT LISTENERS
