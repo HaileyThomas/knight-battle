@@ -7,6 +7,10 @@ var menuContainerEl;
 var innContainerEl;
 var trainingContainerEl;
 var winContainerEl;
+var getScore = localStorage.getItem("score");
+var getName = localStorage.getItem("name");
+var listHighScores = JSON.parse(window.localStorage.getItem("listScores")) || [];
+var maxHighScore = 10;
 
 // SOUNDS
 // EFFECTS
@@ -1610,13 +1614,72 @@ function loadWin() {
   scoreTextEl.innerHTML = "<b>Your Score:</b> " + finalScore;
   winTextDivEl.appendChild(scoreTextEl);
   // add form
+  var winFormEl = document.createElement("form");
+  winFormEl.setAttribute("id", "win-form");
+  winTextDivEl.appendChild(winFormEl);
+  // create input field
+  var winFormInputEl = document.createElement("input");
+  winFormInputEl.setAttribute("id", "name-input");
+  winFormInputEl.setAttribute("type", "text");
+  winFormInputEl.className = "input-form";
+  winTextDivEl.appendChild(winFormInputEl);
+  // create submit button
+  var winSubmitBtn = document.createElement("button");
+  winSubmitBtn.setAttribute("id", "win-btn");
+  winSubmitBtn.setAttribute("type", "submit");
+  winSubmitBtn.className = "town-btn";
+  winSubmitBtn.textContent = "Submit Score";
+  winTextDivEl.appendChild(winSubmitBtn);
+  // add input and submit to form
+  winFormEl.appendChild(winFormInputEl);
+  winFormEl.appendChild(winSubmitBtn);
   // add header for high scores
+  var highScoreHeader = document.createElement("h2");
+  highScoreHeader.textContent = "High Scores";
+  winTextDivEl.appendChild(highScoreHeader);
   // add high scores
+  var highScoreListEl = document.createElement("ul");
+  highScoreListEl.setAttribute("id", "high-scores-list");
+  highScoreListEl.className = "scores-list";
+  winTextDivEl.appendChild(highScoreListEl);
+  // get high scores list
+  listHighScores.forEach((item) => {
+    var li = document.createElement("li");
+    li.innerHTML =
+      "<b>Name:</b> " + item.name + " | " + "<b>Score:</b> " + item.score;
+    highScoreListEl.appendChild(li);
+  });
   // append to win container
   winContainerEl.appendChild(winTextDivEl);
 
   // append ALL to main container
   mainContainer.appendChild(winContainerEl);
+
+  function submitScore(event) {
+    event.stopImmediatePropagation();
+    // give name to input
+    var nameInput = document.getElementById("name-input");
+    // add to local storage
+    localStorage.setItem("score", finalScore);
+    localStorage.setItem("name", nameInput.value);
+    // create combined variable
+    var score = {
+      name: nameInput.value,
+      score: finalScore,
+    };
+    // push to array
+    listHighScores.push(score);
+    // sort array
+    listHighScores.sort((a, b) => b.score - a.score);
+    // only allow 10 scores
+    listHighScores.splice(10);
+    // store to local storage
+    localStorage.setItem("listScores", JSON.stringify(listHighScores));
+    window.alert("High Score Submitted!");
+  }
+
+  // EVENT LISTENER FOR FORM SUBMIT
+  winSubmitBtn.addEventListener("click", submitScore);
 }
 
 // EVENT LISTENERS
