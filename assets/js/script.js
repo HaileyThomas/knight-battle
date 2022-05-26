@@ -1599,7 +1599,16 @@ function loadWin() {
   // create div for win text
   var winTextDivEl = document.createElement("div");
   winTextDivEl.className = "text-box";
+  // calculate score
+  var finalScore =
+    playerInfo.health +
+    playerInfo.attack +
+    playerInfo.defense +
+    playerInfo.money;
   // add win text
+  var scoreTextEl = document.createElement("p");
+  scoreTextEl.innerHTML = "<b>Your Score:</b> " + finalScore;
+  winTextDivEl.appendChild(scoreTextEl);
   // add form
   // add header for high scores
   // add high scores
