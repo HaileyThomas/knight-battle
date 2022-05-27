@@ -18,7 +18,7 @@
             <ion-icon size="large" name="shield-half-outline"></ion-icon>
         </div>
         <div id="header-nav">
-            <ion-icon size="large" name="information-circle-outline"></ion-icon>
+            <ion-icon size="large" name="information-circle-outline" id="modal-btn"></ion-icon>
         </div>
     </header>
     <main>
@@ -41,6 +41,14 @@
             &copy <script>new Date().getFullYear()</script> Hailey Thomas | view source code <a href="https://github.com/HaileyThomas/knight-battle" target="blank" id="footer-link">here</a>
         </p>
     </footer>
+
+    <!-- modal -->
+    <div id="modal-container" class="modal">
+        <div class="modal-content">
+            <ion-icon name="close-outline" class="close"></ion-icon>
+            <p>modal text here</p>
+        </div>
+    </div>
 
     <!-- sound effects -->
     <audio id="start-sound" src="./assets/sounds/start.wav"></audio>

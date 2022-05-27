@@ -9,8 +9,12 @@ var trainingContainerEl;
 var winContainerEl;
 var getScore = localStorage.getItem("score");
 var getName = localStorage.getItem("name");
-var listHighScores = JSON.parse(window.localStorage.getItem("listScores")) || [];
+var listHighScores =
+  JSON.parse(window.localStorage.getItem("listScores")) || [];
 var maxHighScore = 10;
+var modal = document.getElementById("modal-container");
+var openModal = document.getElementById("modal-btn");
+var closeModal = document.getElementsByClassName("close")[0];
 
 // SOUNDS
 // EFFECTS
@@ -1690,3 +1694,17 @@ startBtn.addEventListener("click", function () {
   menuMusic.volume = 0.2;
   menuMusic.play();
 });
+
+openModal.onclick = function () {
+  modal.style.display = "block";
+};
+
+closeModal.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
