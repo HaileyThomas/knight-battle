@@ -121,6 +121,10 @@ h2 {
     padding: 5px;
 }
 
+p {
+    padding: 5px;
+}
+
 .text-box {
     background-color: white;
     background: rgba(255, 255, 255, 0.6);
@@ -286,6 +290,16 @@ footer {
     color: green;
 }
 
+#modal-link {
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#modal-link:hover {
+    color: white;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -305,6 +319,10 @@ footer {
     padding: 20px;
     border: 2px solid darkgoldenrod;
     width: 80%;
+}
+
+#modal-btn:hover {
+    color: white;
 }
 
 .close {
